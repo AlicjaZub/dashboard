@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Companies{% endblock %}</h1>
+{% if g.user %}
+<a class="action" href="{{ url_for('company.create') }}">New</a>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% for company in companies %}
+<article class="company">
+    <header>
+        <div class="about">COMPANY: {{ company['company_name'] }} PASSWORD {{company['company_password']}}</div>
+        <a class="action" href="{{ url_for('company.update', id=company['id']) }}">Edit</a>
+
+    </header>
+</article>
+{% if not loop.last %}
+<hr>
+{% endif %}
+{% endfor %}
+{% endblock %}

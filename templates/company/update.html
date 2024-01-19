@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Edit "{{ company['company_name'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    <label for="company_name">Company name</label>
+    <input name="company_name" id="company_name" value="{{ request.form['company_name'] or company['company_name'] }}"
+        required>
+    <label for="company_password">Company password</label>
+    <input name="company_password" id="company_password">{{ request.form['company_password'] or
+    company['company_password'] }}</input>
+    <input type="submit" value="Save">
+</form>
+<hr>
+
+{% endblock %}

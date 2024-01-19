@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}New Company{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    <label for="company_name">Company Name</label>
+    <input name="company_name" id="company_name" value="{{ request.form['company_name'] }}" required>
+    <label for="company_password">Company password</label>
+    <input name="company_password" id="company_password">{{ request.form['company_password'] }}</input>
+    <input type="submit" value="Save">
+</form>
+{% endblock %}
